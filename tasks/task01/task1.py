@@ -6,6 +6,6 @@ for i in range(1, 1000):
         i %= x
     t = 0
     for z in b:
-        t = t + (z ** len(b))
+        t = t + (z ** len(str(mem)))
     if mem == t:
         print(t)
