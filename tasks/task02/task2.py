@@ -11,18 +11,14 @@ print('''
 
 def tr1():
     s = input("Enter base and height: ")
-    parts = s.split(" ")
-    b = int(parts[0])
-    h = int(parts[1])
-    print(h * b / 2)
+    b, h = map(float, s.split())
+    print(f"{ (h * b / 2):.0f}")
 
 def tr2():
     sec_opt = input("Enter 2 sides and angle(degrees) between them: ")
-    parts = sec_opt.split(" ")
-    b = int(parts[0])
-    c = int(parts[1])
-    an = int(parts[2])
-    print(round(math.sin(math.radians(an)) * (c * b / 2)))
+    b, c, an = map(float, sec_opt.split())
+    res = math.sin(math.radians(an)) * (c * b / 2)
+    print(f"{res:.0f}")
 
 def menu():
     while True:
