@@ -23,13 +23,13 @@ def tr2():
 def menu():
     while True:
         o_one = input("Enter menu item number: ")
-        if o_one == '1':
-            tr1()
-        if o_one == '2':
-            tr2()
-        if o_one == '3':
-            break
-        if o_one != '1' and o_one != '2' and o_one != '3':
+        if o_one not in ('1', '2', '3'):
             print("Enter correct menu item")
-
+        else:
+            if o_one == '1':
+                tr1()
+            if o_one == '2':
+                tr2()
+            if o_one == '3':
+                break
 menu()
