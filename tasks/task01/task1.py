@@ -1,3 +1,4 @@
+import math
 for i in range(1, 1000):
     b = []
     mem = i
@@ -6,6 +7,6 @@ for i in range(1, 1000):
         i %= x
     t = 0
     for z in b:
-        t = t + (z ** len(str(mem)))
+        t = t + (z ** (int(math.log10(mem))+1))
     if mem == t:
         print(t)
