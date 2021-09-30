@@ -17,19 +17,21 @@ def tr1():
 def tr2():
     sec_opt = input("Enter 2 sides and angle(degrees) between them: ")
     b, c, an = map(float, sec_opt.split())
-    res = math.sin(math.radians(an)) * (c * b / 2)
-    print(f"{res:.0f}")
+    if an < 180:
+        res = math.sin(math.radians(an)) * (c * b / 2)
+        print(f"{res:.0f}")
+    else:
+        print("Enter correct angle degrees")
 
 def menu():
     while True:
         o_one = input("Enter menu item number: ")
-        if o_one not in ('1', '2', '3'):
-            print("Enter correct menu item")
+        if o_one == '1':
+            tr1()
+        elif o_one == '2':
+            tr2()
+        elif o_one == '3':
+            break
         else:
-            if o_one == '1':
-                tr1()
-            if o_one == '2':
-                tr2()
-            if o_one == '3':
-                break
+            print('Enter correct menu item')
 menu()
