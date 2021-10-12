@@ -9,25 +9,16 @@ tree = {
    "node2": [7, 8, 9]
 }
 
-al = []
-def df(d):
-    if isinstance(d, dict):
-        for k, v in d.items():
-            if isinstance(v, dict):
-                df(v)
-            else:
-                for i in v:
-                    al.append(i)
+def collect_leaves(lf):
+    if isinstance(lf, dict):
+        al = []
+        for k in lf:
+            al.extend(collect_leaves(lf[k]))
+        return al
     else:
-        for i in d:
-            al.append(i)
-    return (al)
-
-def collect_leaves(tr):
-    assert len(tr) != 0
-    return df(tr)
+        return lf
 
 
+assert collect_leaves(tree) == [1, 2, 3, 31, 5, 31, 7, 8, 9], "test error"
+assert collect_leaves([1, 2, 3]) == [1, 2, 3], "test error"
 print(collect_leaves(tree))
-#print(collect_leaves([1, 3, 5]))
-#print(collect_leaves([]))
