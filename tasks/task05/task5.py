@@ -1,6 +1,5 @@
 def new_user(nm, sn, age=42, **ext):
-    nu = {"name": nm, "surname": sn, "age": age, "extra": {k: v for k, v in ext.items()}}
-    return(nu)
+    return {"name": nm, "surname": sn, "age": age, "extra": ext}
 
 
 assert new_user("Marie", "Curie", age=66, occupation="physicist", won_nobel=True) == \
